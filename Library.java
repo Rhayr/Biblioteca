@@ -23,6 +23,13 @@ public class Library {
         if (book.getWriter() == null || book.getWriter().isEmpty()) {
             throw new Exception("O autor é um campo obrigatório");
         }
+
+        for (Book b : collection) {
+            if (b.getTitle().equalsIgnoreCase(book.getTitle()) && b.getWriter().equalsIgnoreCase(book.getWriter())) {
+                throw new Exception("Livro já cadastrado.");
+            }
+        }
+
         collection.add(book);
     }
 
